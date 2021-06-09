@@ -37,19 +37,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row">
-                                    <a href="" class="btn btn-success btn-sm">Update</a>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
-                                </th> 
-                            </tr>
-                            
+                            @foreach($data as $x)
+                                <tr>
+                                    <th scope="row">{{ $x->name }}</th>
+                                    <th scope="row">{{ $x->description }}</th>
+                                    <th scope="row">{{ $x->category }}</th>
+                                    <th scope="row">{{ $x->suppliers_id}}</th>
+                                    <th scope="row">{{ $x->storage_id}}</th>
+                                    <th scope="row">{{ $x->total_stocks}}</th>
+                                    <th scope="row">
+                                        <a href="" class="btn btn-success btn-sm">Update</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </th> 
+                                </tr>
+                            @endforeach   
                         </tbody>
                     </table>
                 </div>

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-12">
-                    <form action="/asset/create/save" method="post" class="row g-3">
+                    <form action="{{ URL::route('asset.create.save') }}" method="post" class="row g-3">
                         @csrf
                         <div class="col-md-6">
                             <label for="inputFirstName" class="form-label">Name</label>
@@ -33,19 +33,19 @@
                         </div>
                         <div class="col-md-6">
                             <label for="inputContact" class="form-label">Category</label>
-                            <input type="text" class="form-control" name="contact_person" required>
+                            <input type="text" class="form-control" name="category" required>
                         </div>
                         <div class="col-md-6">
                             <label for="inputContact" class="form-label">Supplier</label>
-                            <input type="text" class="form-control" name="category" required>
+                            <input type="text" class="form-control" name="suppliers_id" required>
                         </div>
                         <div class="col-md-6">
                             <label for="inputContact" class="form-label">Storage</label>
-                            <input type="text" class="form-control" name="category" required>
+                            <input type="text" class="form-control" name="storage_id" required>
                         </div>
                         <div class="col-md-6">
                             <label for="inputContact" class="form-label">Total Stocks</label>
-                            <input type="number" class="form-control" name="category" required>
+                            <input type="number" class="form-control" name="total_stocks" required>
                         </div>
                         
                         <div class="col-12">

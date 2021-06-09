@@ -8,10 +8,25 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{ URL::route('supplier') }}">Suppliers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="{{ URL::route('storage') }}">Storage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('asset') }}">Assets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('distribution') }}">Distribution</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('transportation') }}">Transportation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('deliveries') }}">Deliveries</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::route('returns') }}">Return</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
