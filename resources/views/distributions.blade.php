@@ -27,6 +27,7 @@
                     <table class="table mt-3">
                         <thead>
                             <tr>
+                                <th class="text-muted" scope="col">#</th>
                                 <th class="text-muted" scope="col">Requestor Name</th>
                                 <th class="text-muted" scope="col">Requestor Contact</th>
                                 <th class="text-muted" scope="col">Purpose</th>
@@ -37,19 +38,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($data as $x=> $distribution)
                             <tr>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
+                                <th scope="col">{{++$x}}</th>
+                                <th scope="row">{{ $distribution->requestor_name }}</th>
+                                <th scope="row">{{ $distribution->requestor_contact }}</th>
+                                <th scope="row">{{ $distribution->purpose }}</th>
+                                <th scope="row">{{ $distribution->assets->name }}</th>
+                                <th scope="row">{{ $distribution->quantity }}</th>
+                                <th scope="row">{{ $distribution->status }}</th>
                                 <th scope="row">
-                                    <a href="" class="btn btn-success btn-sm">Update</a>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{ URL::route('distribution.update', $distribution->id) }}" class="btn btn-success btn-sm">Update</a>
+                                    <a href="{{ URL::route('distribution.delete', $distribution->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </th> 
                             </tr>
-                            
+                        @endforeach    
                         </tbody>
                     </table>
                 </div>

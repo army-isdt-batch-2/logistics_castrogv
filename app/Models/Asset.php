@@ -31,13 +31,13 @@ class Asset extends Model
         return $this->belongsTo(Storage::class);
     }
 
-    public function distribution()
+    public function distributions()
     {
-        return $this->hasOne(Distribution::class,'distribution_id');
+        return $this->hasOne(Distribution::class,'distributions_id');
     }
 
-    public function return()
+    public function returns()
     {
-        return $this->hasOne(Returns::class,'asset_id');
+        return $this->hasOne(Returns::class,'assets_id');
     }
 }

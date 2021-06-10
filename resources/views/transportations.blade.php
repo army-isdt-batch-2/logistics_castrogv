@@ -27,27 +27,28 @@
                     <table class="table mt-3">
                         <thead>
                             <tr>
+                                <th class="text-muted" scope="col">#</th>
                                 <th class="text-muted" scope="col">Plate Number</th>
                                 <th class="text-muted" scope="col">Driver Name</th>
                                 <th class="text-muted" scope="col">Driver Contact</th>
-                                <th class="text-muted" scope="col">Contact Person</th>
                                 <th class="text-muted" scope="col">Notes</th>
                                 <th class="text-muted" scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($data as $x)
                             <tr>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
-                                <th scope="row"></th>
+                            <th scope="col">{{++$x}}</th>
+                                <th scope="row">{{ $x->plate_number }}</th>
+                                <th scope="row">{{ $x->driver_name }}</th>
+                                <th scope="row">{{ $x->driver_contact }}</th>
+                                <th scope="row">{{ $x->notes }}</th>
                                 <th scope="row">
                                     <a href="" class="btn btn-success btn-sm">Update</a>
                                     <a href="" class="btn btn-danger btn-sm">Delete</a>
                                 </th> 
                             </tr>
-                            
+                        @endforeach    
                         </tbody>
                     </table>
                 </div>
