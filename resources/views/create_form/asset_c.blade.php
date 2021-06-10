@@ -36,12 +36,22 @@
                             <input type="text" class="form-control" name="category" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputContact" class="form-label">Supplier</label>
-                            <input type="text" class="form-control" name="suppliers_id" required>
+                            <label for="name" class="form-label">Supplier</label>
+                          <select  class="form-control" name="supplier_id"required>
+                          <option value="" selected>--Select Supplier--</option>
+                            @foreach ($suppliers as $supplier)
+                            <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                            @endforeach                         
+                            </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputContact" class="form-label">Storage</label>
-                            <input type="text" class="form-control" name="storage_id" required>
+                            <label for="name" class="form-label">Storage</label>
+                          <select  class="form-control" name="storage_id"required>
+                          <option value="" selected>--Select Storage--</option>
+                            @foreach ($storage as $stor)
+                            <option value="{{$stor->id}}">{{$stor->name}}</option>
+                            @endforeach                         
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputContact" class="form-label">Total Stocks</label>

@@ -19,10 +19,7 @@ class AssetController extends Controller
 
     public function asset()
     {
-        $data = Asset::select('assets.name', 'assets.description', 'assets.category', 'total_stocks')
-                    ->join('suppliers', 'suppliers.id', 'assets.suppliers_id')
-                    ->join('storage', 'storage.id', 'assets.storage_id')
-                    ->get();
+        $data=Asset::with(['suppliers','storage'])->get();
 
         return view('assets')->with([
             'data' => $data
@@ -31,14 +28,15 @@ class AssetController extends Controller
 
     public function asset_create()
     {
-        return view('create_form.asset_c');
+        $suppliers=Supplier::select('id','name')->get();
+        $storage=Storage::select('id','name')->get();
+        return view('create_form.asset_c')->with(['suppliers'=>$suppliers,'storage'=>$storage]);
     }
 
     public function asset_create_save()
     {
     
-        $data = $this->request->except('_token');
-        Asset::create($data);
+        Asset::create($this->request->except('_token'));
 
         return Redirect::route('asset');
     }
@@ -52,8 +50,12 @@ class AssetController extends Controller
 
     public function asset_update($id)
     {
+        $suppliers = Supplier::select('id','name')->get();
+        $storage = Storage::select('id','name')->get();
+        $data=Asset::find($id);
+        
         return view('update_form.asset_update')->with([
-            'data' => Asset::find($id)
+            'data' => $data, 'suppliers' => $suppliers, 'storage' => $storage
         ]);
     }
 

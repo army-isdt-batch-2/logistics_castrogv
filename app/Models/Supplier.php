@@ -21,4 +21,9 @@ class Supplier extends Model
           'updated_at'
     ];
 
+    public function asset()
+    {
+        return $this->hasOne(Asset::class,'suppliers_id');
+    }
+
 }

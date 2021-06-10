@@ -27,6 +27,7 @@
                     <table class="table mt-3">
                         <thead>
                             <tr>
+                            <th class="text-muted" scope="col">#</th>
                                 <th class="text-muted" scope="col">Name</th>
                                 <th class="text-muted" scope="col">Description</th>
                                 <th class="text-muted" scope="col">Category</th>
@@ -37,17 +38,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data as $x)
+                            @foreach($data as $x=> $asset)
                                 <tr>
-                                    <th scope="row">{{ $x->name }}</th>
-                                    <th scope="row">{{ $x->description }}</th>
-                                    <th scope="row">{{ $x->category }}</th>
-                                    <th scope="row">{{ $x->suppliers_id}}</th>
-                                    <th scope="row">{{ $x->storage_id}}</th>
-                                    <th scope="row">{{ $x->total_stocks}}</th>
+                                    <th scope="col">{{++$x}}</th>
+                                    <th scope="row">{{ $asset->name }}</th>
+                                    <th scope="row">{{ $asset->description }}</th>
+                                    <th scope="row">{{ $asset->category }}</th>
+                                    <th scope="row">{{ $asset->suppliers->name }}</th>
+                                    <th scope="row">{{ $asset->storage->name }}</th>
+                                    <th scope="row">{{ $asset->total_stocks }}</th>
                                     <th scope="row">
-                                        <a href="" class="btn btn-success btn-sm">Update</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="{{ URL::route('asset.update', $asset->id) }}" class="btn btn-success btn-sm">Update</a>
+                                        <a href="{{ URL::route('asset.delete', $asset->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                     </th> 
                                 </tr>
                             @endforeach   

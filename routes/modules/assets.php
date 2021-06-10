@@ -28,6 +28,6 @@ Route::get('/asset/update/{id}',[
 ])->name('asset.update');
 
 Route::post('/asset/update/{id}/save',[
-    App\Http\Controllers\StorageController::class,
+    App\Http\Controllers\AssetController::class,
     'asset_update_save'
 ])->name('asset.update.save');

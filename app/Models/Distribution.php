@@ -21,4 +21,9 @@ class Distribution extends Model
           'created_at',
           'updated_at'
     ];
+
+    public function assets()
+    {
+        return $this->belongsTo(Asset::class);
+    }
 }

@@ -21,4 +21,23 @@ class Asset extends Model
           'created_at',
           'updated_at'
     ];
+
+    public function suppliers()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+    public function storage()
+    {
+        return $this->belongsTo(Storage::class);
+    }
+
+    public function distribution()
+    {
+        return $this->hasOne(Distribution::class,'distribution_id');
+    }
+
+    public function return()
+    {
+        return $this->hasOne(Returns::class,'asset_id');
+    }
 }

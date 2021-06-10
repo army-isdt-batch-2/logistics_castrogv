@@ -20,4 +20,9 @@ class Storage extends Model
           'created_at',
           'updated_at'
     ];
+
+    public function asset()
+    {
+        return $this->hasOne(Asset::class,'asset_id');
+    }
 }
